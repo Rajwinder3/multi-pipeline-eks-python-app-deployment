@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-pods
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app-pods
+  template:
+    metadata:
+      labels:
+        app: my-app-pods
+    spec:
+      containers:
+        - name: backend
+          image: 145023105377.dkr.ecr.us-east-1.amazonaws.com/python/app:latest
+          ports:
+            - containerPort: 5000

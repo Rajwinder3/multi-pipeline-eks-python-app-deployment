@@ -10,7 +10,7 @@ variable "password" {
 }
 
 variable "private_subnet" {
-  type = string
+  type = list(string)
 }
 
 variable "security_group" {

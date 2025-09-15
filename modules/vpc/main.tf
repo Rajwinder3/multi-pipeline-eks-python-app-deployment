@@ -112,6 +112,20 @@ resource "aws_security_group" "public_Sg" {
 resource "aws_security_group" "private_Sg" {
   name = "private-sg"
   vpc_id = aws_vpc.main.id
+  #  ingress {
+  #   description = "MySQL from EKS nodes"
+  #   from_port   = 3306
+  #   to_port     = 3306
+  #   protocol    = "tcp"
+  #   security_groups = [var.eks_nodes_sg.id]
+  # }
+
+  # egress {
+  #   from_port   = 0
+  #   to_port     = 0
+  #   protocol    = "-1"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
   tags = {
     Name = "Private-SG"
   }

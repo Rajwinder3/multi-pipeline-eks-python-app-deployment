@@ -14,6 +14,28 @@ spec:
     spec:
       containers:
         - name: backend
-          image: 145023105377.dkr.ecr.us-east-1.amazonaws.com/python/app:latest
+          image: aws_acc_id.dkr.ecr.us-east-1.amazonaws.com/python/app:latest
           ports:
             - containerPort: 5000
+          env:
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: DB_HOST
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: DB_USER
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: DB_PASS
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: DB_NAME
+                    

@@ -2,13 +2,13 @@ module "vpc" {
   source = "./modules/vpc"
 }
 
-# module "rds"{
-#   source = "./modules/rds"
-#   username = var.db_username
-#   password = var.db_password
-#   private_subnet = module.vpc.private_subnet_ids[0]
-#   security_group = [module.vpc.sg_private]
-# }
+module "rds"{
+  source = "./modules/rds"
+  username = var.db_username
+  password = var.db_password
+  private_subnet = module.vpc.private_subnet_ids
+  security_group = [module.vpc.sg_private]
+}
 
 module "eks" {
   source = "./modules/eks"

@@ -13,3 +13,7 @@ output "sg_public" {
 output "public_Subnet_ids" {
   value = aws_subnet.public[*].id
 }
+
+output "vpc_id" {
+  value = aws_vpc.main.id
+}

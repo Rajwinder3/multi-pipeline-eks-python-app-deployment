@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: aws_acc_id.dkr.ecr.us-east-1.amazonaws.com/python/app:latest
+          image: acc_id.dkr.ecr.us-east-1.amazonaws.com/python/app:latest
           ports:
             - containerPort: 5000
           env:
